@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>악녀생존기 · 로셈 제국 해설집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2c1630; --plum-2:#3d2042; --plum-3:#563060; --violet:#8a5aa8; --violet-lt:#c9a6e0;
+  --ivory:#faf5ec; --ivory-2:#f2e9d8; --ivory-3:#e7dac2;
+  --gold:#b8934a; --gold-lt:#e2c58a; --gold-dk:#8a6a2c;
+  --rose:#a8455e; --ink:#2b2026; --ink-2:#56474e; --muted:#8a7a80; --line:rgba(184,147,74,.35);
+  --display:'Gowun Batang','Noto Serif KR',serif;
+  --body:'Noto Serif KR','Gowun Batang',serif;
+  --label:'Cinzel','Noto Serif KR',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.95;word-break:keep-all;overflow-wrap:break-word}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;font-weight:400}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ── 입장 ── */
+#gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px 16px;overflow:auto;
+  background:radial-gradient(ellipse at 50% 30%,rgba(138,90,168,.35),transparent 60%),radial-gradient(ellipse at 50% 100%,rgba(184,147,74,.15),transparent 60%),var(--plum);
+  transition:opacity .8s ease,visibility .8s}
+#gate.gone{opacity:0;visibility:hidden}
+.letter{position:relative;width:min(520px,94vw);background:var(--ivory);padding:44px 34px 36px;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.letter::before{content:'';position:absolute;inset:10px;border:1px solid var(--gold);pointer-events:none}
+.letter::after{content:'';position:absolute;inset:15px;border:1px solid var(--line);pointer-events:none}
+.letter small{font-family:var(--label);letter-spacing:.32em;font-size:11px;color:var(--gold-dk)}
+.letter h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,8vw,42px);color:var(--plum);margin:10px 0 6px;line-height:1.25}
+.letter .sub{font-size:15px;color:var(--ink-2)}
+.letter .orn{width:160px;height:20px;margin:18px auto;color:var(--gold)}
+.letter p{font-size:15px;color:var(--ink-2);margin:0 0 6px}
+.seal{width:86px;height:86px;border-radius:50%;margin:22px auto 0;border:none;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  background:radial-gradient(circle at 35% 30%,#c46a82,var(--rose) 50%,#6e2338);color:#fbe8ee;font-family:var(--display);font-weight:700;font-size:15px;line-height:1.2;
+  box-shadow:0 4px 0 #5a1c2d,0 10px 20px rgba(0,0,0,.3);transition:transform .15s}
+.seal::before{content:'';position:absolute;inset:7px;border-radius:50%;border:1px dashed rgba(251,232,238,.55)}
+.seal:hover{transform:scale(1.05) rotate(-4deg)}
+.seal span{font-family:var(--label);font-size:10px;letter-spacing:.14em;opacity:.8}
+.gate-hint{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* ── 네비 ── */
+.nav{position:sticky;top:0;z-index:30;background:rgba(44,22,48,.95);backdrop-filter:blur(6px);border-bottom:1px solid rgba(226,197,138,.3)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:58px}
+.nav .brand{font-family:var(--display);font-weight:700;color:var(--gold-lt);font-size:18px;white-space:nowrap;text-decoration:none}
+.nav ol{list-style:none;margin:0 0 0 auto;padding:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav ol::-webkit-scrollbar{display:none}
+.nav ol a{display:block;text-decoration:none;color:rgba(250,245,236,.72);padding:.35rem .8rem;font-size:15px;white-space:nowrap;border-radius:999px;transition:background .15s,color .15s}
+.nav ol a:hover{color:#fff;background:rgba(201,166,224,.15)}
+.nav ol a.on{background:var(--gold-lt);color:var(--plum)}
+
+/* ── 표지 ── */
+.hero{background:radial-gradient(ellipse at 50% 0%,rgba(138,90,168,.4),transparent 60%),var(--plum);color:var(--ivory);padding:44px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:40px;background:var(--ivory);clip-path:polygon(0 100%,0 40%,50% 0,100% 40%,100% 100%)}
+.hero .frame{position:relative;max-width:900px;margin:0 auto;padding:10px;background:linear-gradient(135deg,var(--gold-lt),var(--gold-dk));box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.hero .frame img{width:100%;aspect-ratio:1448/800;object-fit:cover}
+.hero .lead{max-width:720px;margin:34px auto 0;text-align:center;font-size:17px;color:rgba(250,245,236,.86)}
+.hero .lead b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(24px,4vw,32px);color:var(--gold-lt);margin-bottom:12px;line-height:1.35}
+
+/* ── 섹션 ── */
+.sec{padding:80px 0 30px}
+.sec-h{text-align:center;margin-bottom:38px}
+.sec-h small{display:block;font-family:var(--label);letter-spacing:.3em;font-size:12px;color:var(--gold-dk)}
+.sec-h h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,38px);color:var(--plum);margin-top:4px}
+.sec-h .orn{width:180px;height:20px;margin:10px auto 0;color:var(--gold)}
+.prose{max-width:760px;margin:0 auto}
+.prose p{margin:0 0 1.1em;color:var(--ink-2)}
+.prose p:first-child::first-line{color:var(--ink);font-weight:600}
+
+.houses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:36px auto 0}
+.house{position:relative;overflow:hidden;border:1px solid var(--line);background:#fff}
+.house img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.house div{padding:14px 16px 16px}
+.house b{display:block;font-family:var(--display);font-weight:700;font-size:19px;color:var(--plum)}
+.house span{font-size:14px;color:var(--muted)}
+
+/* 정세 */
+.factions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:40px 0 0}
+.fac{background:#fff;border:1px solid var(--line);padding:20px 18px 18px;border-top:4px solid var(--c)}
+.fac h3{font-family:var(--display);font-weight:700;font-size:20px;color:var(--c)}
+.fac p{margin:2px 0 14px;font-size:14px;color:var(--muted);line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:flex;align-items:center;gap:8px;border:1px solid var(--ivory-3);background:var(--ivory);border-radius:999px;padding:3px 12px 3px 3px;font-size:14px;font-family:var(--display);transition:border-color .15s,background .15s}
+.chip:hover{border-color:var(--c);background:#fff}
+.chip img{width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:center 20%}
+.chip.plain{padding:4px 12px}
+
+/* 힘 */
+.powers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.pw{background:#fff;border:1px solid var(--line);padding:24px 22px 20px;position:relative}
+.pw::before{content:attr(data-n);position:absolute;right:16px;top:10px;font-family:var(--label);font-size:30px;color:var(--ivory-3)}
+.pw h3{font-family:var(--display);font-weight:700;font-size:21px;color:var(--plum);margin-bottom:6px}
+.pw p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.85}
+
+/* 인물 */
+.gtabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:28px}
+.gtabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.4rem 1rem;font-family:var(--display);font-size:15px;color:var(--ink-2);transition:background .15s,color .15s}
+.gtabs button:hover{border-color:var(--gold)}
+.gtabs button[aria-selected="true"]{background:var(--plum);color:var(--gold-lt);border-color:var(--plum)}
+.group{margin-bottom:46px}
+.group-h{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.group-h img{width:120px;aspect-ratio:16/9;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 10px rgba(44,22,48,.15)}
+.group-h h3{font-family:var(--display);font-weight:700;font-size:26px;color:var(--plum)}
+.group-h h3 small{display:block;font-family:var(--label);font-size:11px;letter-spacing:.24em;color:var(--gold-dk);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{text-align:left;border:none;padding:0;background:#fff;box-shadow:0 1px 0 var(--ivory-3),0 10px 24px rgba(44,22,48,.1);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--ivory-3),0 18px 34px rgba(44,22,48,.18)}
+.card .ph{aspect-ratio:3/2;overflow:hidden;background:var(--ivory-2)}
+.card .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.04)}
+.card .ph.none{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:42px;color:var(--gold);background:linear-gradient(135deg,var(--ivory-2),var(--ivory-3))}
+.card .tx{padding:14px 18px 18px}
+.card .role{font-size:13px;color:var(--rose)}
+.card b{display:block;font-family:var(--display);font-weight:700;font-size:21px;color:var(--plum);line-height:1.35}
+.card .meta{font-size:13px;color:var(--muted)}
+.card .ex{margin:8px 0 0;font-size:14px;color:var(--ink-2);line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 인물 상세 */
+#modal{position:fixed;inset:0;z-index:80;background:rgba(44,22,48,.7);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:46px 14px 30px}
+#modal.on{display:flex}
+.mbox{position:relative;width:min(820px,100%);background:var(--ivory);box-shadow:0 30px 60px rgba(0,0,0,.4);animation:up .25s ease}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mbox .ph{position:relative}
+.mbox .ph img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center 22%}
+.mbox .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(44,22,48,.75))}
+.mbox .ph.none{height:120px;background:linear-gradient(135deg,var(--plum-2),var(--plum-3))}
+.mbox .cap{position:absolute;left:28px;right:28px;bottom:20px;z-index:2;color:#fff}
+.mbox .cap small{font-family:var(--label);font-size:11px;letter-spacing:.2em;color:var(--gold-lt)}
+.mbox .cap h3{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,36px);line-height:1.2}
+.mbox .meta{display:flex;flex-wrap:wrap;gap:6px;padding:18px 28px 0}
+.mbox .meta span{font-size:13.5px;border:1px solid var(--line);background:#fff;padding:.1rem .7rem;border-radius:999px;color:var(--ink-2)}
+.mbox .body{padding:16px 28px 26px}
+.mbox .body p{margin:0 0 1em;color:var(--ink-2)}
+.mbox .body p.tmi{background:#fff;border-left:3px solid var(--rose);padding:12px 16px;color:var(--ink)}
+.mbox .body p.tmi::before{content:'TMI';display:block;font-family:var(--label);font-size:11px;letter-spacing:.2em;color:var(--rose)}
+.mbox .foot{display:flex;justify-content:space-between;padding:0 28px 24px;gap:8px}
+.mbox .foot button{border:1px solid var(--line);background:#fff;padding:.4rem 1rem;font-size:14px;font-family:var(--display)}
+.mbox .foot button:hover{background:var(--plum);color:var(--gold-lt)}
+#mclose{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:none;background:var(--ivory);font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:2}
+#mclose:hover{background:var(--rose);color:#fff}
+
+/* 지도 */
+.map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start;margin-top:30px}
+.compass{position:relative;background:radial-gradient(circle at 50% 50%,#fffaf0,var(--ivory-2));border:1px solid var(--line);padding:18px}
+.compass svg{width:100%;height:auto;display:block}
+.reg{cursor:pointer}
+.reg path,.reg circle{transition:fill .2s,stroke .2s}
+.reg:hover path,.reg:hover circle,.reg.on path,.reg.on circle{fill:var(--plum-3);stroke:var(--gold)}
+.reg:hover text,.reg.on text{fill:var(--gold-lt)}
+.reg text{transition:fill .2s;pointer-events:none}
+.reg:focus{outline:none}
+.reg:focus-visible path,.reg:focus-visible circle{stroke:var(--gold);stroke-width:3}
+.region{background:#fff;border:1px solid var(--line);overflow:hidden;min-height:100%}
+.region img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.region div{padding:20px 22px 22px}
+.region h3{font-family:var(--display);font-weight:700;font-size:24px;color:var(--plum);margin-bottom:6px}
+.region p{margin:0;color:var(--ink-2);font-size:15.5px}
+.outro{max-width:760px;margin:34px auto 0;text-align:center;font-family:var(--display);font-size:18px;color:var(--plum);padding:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+footer{margin-top:80px;background:var(--plum);color:rgba(250,245,236,.6);text-align:center;padding:30px 20px;font-size:14px}
+footer b{display:block;font-family:var(--display);color:var(--gold-lt);font-size:18px;margin-bottom:4px}
+
+/* BGM */
+#bgm-bar{position:fixed;right:14px;bottom:14px;z-index:40;display:none;align-items:center;gap:10px;background:var(--plum);color:var(--ivory);border:1px solid rgba(226,197,138,.4);border-radius:999px;padding:6px 6px 6px 16px;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+#bgm-bar.on{display:flex}
+#bgm-bar .t{font-family:var(--label);font-size:12px;letter-spacing:.08em}
+#bgm-btn{width:34px;height:34px;border-radius:50%;border:none;background:var(--gold-lt);color:var(--plum);font-size:11px}
+
+@media(max-width:900px){
+  .houses{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .factions,.powers{grid-template-columns:1fr}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .map{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .nav .brand{display:none}
+  .nav ol{margin:0;width:100%}
+  .nav ol a{padding:.3rem .6rem;font-size:14px}
+  .hero{padding:24px 0 52px}
+  .hero .frame{padding:6px}
+  .sec{padding:60px 0 20px}
+  .cards{grid-template-columns:1fr}
+  .group-h img{width:90px}
+  .group-h h3{font-size:22px}
+  .mbox .cap{left:18px;right:18px;bottom:14px}
+  .mbox .meta,.mbox .body,.mbox .foot{padding-left:18px;padding-right:18px}
+  #bgm-bar .t{display:none}
+  #bgm-bar{padding:6px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="orn" viewBox="0 0 180 20"><path d="M0 10h70M110 10h70" stroke="currentColor" stroke-width="1"/><path d="M90 2l6 8-6 8-6-8z" fill="currentColor"/><circle cx="76" cy="10" r="2" fill="currentColor"/><circle cx="104" cy="10" r="2" fill="currentColor"/></symbol></svg>
+
+<audio id="bgm" loop preload="auto"><source src="https://raw.githubusercontent.com/68ol/wicked/refs/heads/main/The%20Royal%20Waltz.mp3" type="audio/mpeg"></audio>
+
+<div id="gate">
+  <div class="letter">
+    <small>INVITATION · ROSEM</small>
+    <h1>로셈 제국 해설집</h1>
+    <div class="sub">빙의자를 위한 생존 브리핑</div>
+    <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
+    <p>눈을 뜨자마자 사교계 스캔들의 주인공이 되어 있다면,<br>일단 상황 파악부터 하는 게 순서다.</p>
+    <button class="seal" id="enter" aria-label="봉인을 뜯고 입장하기">봉인<br>뜯기<span>ENTER</span></button>
+    <div class="gate-hint">봉인을 누르면 음악과 함께 열립니다</div>
+  </div>
+</div>
+
+<nav class="nav" aria-label="목차"><div class="wrap">
+  <a class="brand" href="#top">악녀생존기</a>
+  <ol>
+    <li><a href="#world">세계관</a></li>
+    <li><a href="#politics">정세</a></li>
+    <li><a href="#power">힘의 체계</a></li>
+    <li><a href="#people">등장인물</a></li>
+    <li><a href="#map">지도</a></li>
+  </ol>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="frame"><img src="https://raw.githubusercontent.com/68ol/wicked/refs/heads/main/%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%20%ED%91%9C%EC%A7%80.png" alt="악녀생존기 세계관·등장인물·지도"></div>
+  <div class="lead" id="intro"></div>
+</div></header>
+
+<main>
+  <section class="sec" id="world"><div class="wrap">
+    <div class="sec-h"><small>CHAPTER I</small><h2>세계관</h2><svg class="orn" aria-hidden="true"><use href="#orn"/></svg></div>
+    <div class="prose" id="world-text"></div>
+    <div class="houses" id="houses"></div>
+  </div></section>
+
+  <section class="sec" id="politics"><div class="wrap">
+    <div class="sec-h"><small>CHAPTER II</small><h2>정세</h2><svg class="orn" aria-hidden="true"><use href="#orn"/></svg></div>
+    <div class="prose" id="pol-text"></div>
+    <div class="factions" id="factions"></div>
+  </div></section>
+
+  <section class="sec" id="power"><div class="wrap">
+    <div class="sec-h"><small>CHAPTER III</small><h2>힘의 체계</h2><svg class="orn" aria-hidden="true"><use href="#orn"/></svg></div>
+    <div class="prose" id="pw-intro"></div>
+    <div class="powers" id="powers"></div>
+  </div></section>
+
+  <section class="sec" id="people"><div class="wrap">
+    <div class="sec-h"><small>CHAPTER IV</small><h2>등장인물</h2><svg class="orn" aria-hidden="true"><use href="#orn"/></svg></div>
+    <div class="gtabs" role="tablist" id="gtabs"></div>
+    <div id="groups"></div>
+  </div></section>
+
+  <section class="sec" id="map"><div class="wrap">
+    <div class="sec-h"><small>CHAPTER V</small><h2>지도</h2><svg class="orn" aria-hidden="true"><use href="#orn"/></svg></div>
+    <div class="prose" id="map-intro"></div>
+    <div class="map">
+      <div class="compass">
+        <svg viewBox="0 0 400 400" role="group" aria-label="로셈 제국 구역도">
+          <circle cx="200" cy="200" r="190" fill="none" stroke="#e7dac2" stroke-width="1"/>
+          <circle cx="200" cy="200" r="150" fill="none" stroke="#e7dac2" stroke-width="1" stroke-dasharray="3 5"/>
+          <g class="reg" data-r="2" tabindex="0" role="button" aria-label="북부"><path d="M200 10 A190 190 0 0 1 334 66 L262 138 A88 88 0 0 0 138 138 L66 66 A190 190 0 0 1 200 10Z" fill="#efe6f4" stroke="#c9a6e0"/><text x="200" y="74" text-anchor="middle" font-family="Gowun Batang,serif" font-size="17" font-weight="700" fill="#3d2042">북부 · 히베르</text></g>
+          <g class="reg" data-r="1" tabindex="0" role="button" aria-label="서부"><path d="M10 200 A190 190 0 0 1 66 66 L138 138 A88 88 0 0 0 138 262 L66 334 A190 190 0 0 1 10 200Z" fill="#f4ece1" stroke="#c9a6e0"/><text x="64" y="205" text-anchor="middle" font-family="Gowun Batang,serif" font-size="16" font-weight="700" fill="#3d2042">서부</text><text x="64" y="225" text-anchor="middle" font-family="Gowun Batang,serif" font-size="13" fill="#56474e">엘데하르트</text></g>
+          <g class="reg" data-r="3" tabindex="0" role="button" aria-label="동부"><path d="M390 200 A190 190 0 0 0 334 66 L262 138 A88 88 0 0 1 262 262 L334 334 A190 190 0 0 0 390 200Z" fill="#f4ece1" stroke="#c9a6e0"/><text x="336" y="205" text-anchor="middle" font-family="Gowun Batang,serif" font-size="16" font-weight="700" fill="#3d2042">동부</text><text x="336" y="225" text-anchor="middle" font-family="Gowun Batang,serif" font-size="13" fill="#56474e">라르고</text></g>
+          <g class="reg" data-r="4" tabindex="0" role="button" aria-label="남부"><path d="M200 390 A190 190 0 0 0 334 334 L262 262 A88 88 0 0 1 138 262 L66 334 A190 190 0 0 0 200 390Z" fill="#e8f0f4" stroke="#c9a6e0"/><text x="200" y="340" text-anchor="middle" font-family="Gowun Batang,serif" font-size="17" font-weight="700" fill="#3d2042">남부 · 카르테고</text></g>
+          <g class="reg on" data-r="0" tabindex="0" role="button" aria-label="수도"><circle cx="200" cy="200" r="84" fill="#f7efd8" stroke="#b8934a" stroke-width="1.5"/><text x="200" y="196" text-anchor="middle" font-family="Gowun Batang,serif" font-size="18" font-weight="700" fill="#3d2042">수도</text><text x="200" y="218" text-anchor="middle" font-family="Gowun Batang,serif" font-size="14" fill="#56474e">아스텔리아</text></g>
+          <text x="200" y="8" text-anchor="middle" font-family="Cinzel,serif" font-size="11" fill="#8a6a2c" dy="-1">N</text>
+        </svg>
+      </div>
+      <article class="region" id="region" aria-live="polite"></article>
+    </div>
+    <p class="outro" id="map-outro"></p>
+  </div></section>
+</main>
+
+<footer><b>악녀생존기</b>로셈 제국 해설집 · 빙의자를 위한 생존 브리핑</footer>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="인물 정보">
+  <button id="mclose" aria-label="닫기">✕</button>
+  <article class="mbox" id="mbox"></article>
+</div>
+
+<div id="bgm-bar"><span class="t">The Royal Waltz</span><button id="bgm-btn" aria-label="음악 재생/정지">❚❚</button></div>
+
+<script>
+(function(){
+  var D = {"intro": ["눈을 뜨자마자 사교계 스캔들의 주인공이 되어 있다면, 일단 상황 파악부터 하는 게 순서다. 여기는 신성제국 로셈. 장르는 로맨스 판타지, 다시 말해 \"가문끼리 눈치 게임 하다가 검 좀 뽑는 세계\"다. 아래 브리핑을 다 읽고도 못 살아남으면 그건 설정 탓이 아니라 본인 탓이니 열심히 탐독하도록."], "world": ["로셈은 신성제국이라는 이름값을 하는 절대군주제 국가다. 황실이 \"여신 아스텔의 대리자\"라는 타이틀로 통치 정당성을 확보하는데, 풀어 말하면 신을 대신한다는 명분 하나로 이의제기 자체를 봉쇄하는 구조다. 감사 기구도 없고 주주총회도 없다. 사장이 신의 위임장을 들고 있다고 우기면 그게 곧 법이 되는 회사인 셈.", "그 아래로 4대 대가문이 각자 분야를 독점하며 서로 견제한다. 검은 엘데하르트, 마력석과 마물 토벌은 히베르, 신앙과 곡창은 라르고, 바다와 정령은 카르테고. 권력 서열은 황실과 대신전이 나란히 최상단에 있고, 그 밑으로 대공, 공작, 후작, 백작, 남작, 자작이 줄줄이 이어진다. 신분제 사회의 전형적인 계단식 구조인데, 문제는 계단 위에 있다고 힘이 세다는 보장이 없다는 점이다. 마나 재능은 혈통을 무시하고 아무 데서나 터지기 때문에, 평민 출신이 귀족 도련님보다 강한 상황이 흔하게 벌어진다. 그래서 마탑과 기사단은 실력만 있으면 신분을 세탁해주는 유일한 창구로 기능한다.", "마탑은 이 서열 바깥에 있는 중립 조직이다. 홀로 망망대해 외딴 섬에 위치한 이 집단은 어느 세력에도 줄을 서지 않는다고 선언은 했지만, 마력석을 히베르에게 의존한다는 약점 하나는 확실히 갖고 있다. 완전한 중립이라기보다는 \"말려들지 않으려고 최선을 다하는 중\"에 가깝다.", "종교 쪽은 여신 아스텔을 섬기는 대신전이 맡고 있고, 황실과 대신전은 겉으로는 대등해 보이지만 실제로는 서로의 약점을 쥐고 있는 관계다. 황실은 신전의 권위를 빌려 정당성을 채우고, 신전은 황실 예산 없이는 살림이 안 돌아간다. 서로 못 끊는 사이라는 뜻이고, 이게 의인화되었으면 둘은 드라마같은 혐관이었을 거다."], "politics": ["지금 로셈의 최대 화두는 후계 다툼이다. 황제 라키온은 투병 중이며 상석에 잘 안 나타난다. 아들이 둘인데 사이좋게 나눠 가진 건 왕좌에 대한 야심뿐이다.", "1황자 루시안은 라르고 가문과 신전 내 현세파 체사레 파벌의 지지를 받는다. 체사레는 이미 대주교직을 현물로 받았고, 교황직은 어음으로 받아둔 상태다. 현 교황 베네딕토가 78세 고령이라 자연사가 유력하다는 계산이 깔려 있지만, 아직 승계가 확정된 건 아니라서 어음은 어디까지나 어음이다. 크리스티나는 오빠의 속셈을 모르는 척할 만큼 순진하지 않다. 성녀 자리가 주는 권력이 탐나서 알면서도 올라타는 쪽을 택했다. 원칙파 레온하르트는 체사레의 방식이 못마땅한 데다, 교황의 건강 악화가 조작된 게 아닌가 하는 의심까지 겹쳐서 조용히 뒷조사를 시작했다. 신앙심으로 뭉친 조직인데 내부 갈등의 진짜 원인은 정치다. 어디에서나 그렇듯이. 여신이 보시면 가장 신성한 곳조차 세속화되었다고 한숨을 쉴 것이다.", "2황자 막시밀리언은 카르테고와 해상무역 독점권과 왕실함대 일부 편입을 놓고 협상 중인데, 정작 본인이 정치적 흥정에 서툴러서 진도가 안 나간다. 검으로는 누구에게도 안 진다는 사람이 협상 테이블에서는 매번 발목을 잡히는 그림이다. 그 틈을 오르비스 상단이 파고들며, 독점권 대신 접근권만 값싸게 요구하면서 카르테고의 협상력을 은근히 깎아먹는 중이다.", "엘데하르트의 헤롤드는 양쪽 모두에게 다리를 걸친 채 공식 입장 표명을 미루고 있고, 히베르는 대공가 혈통이 황제의 사촌이라는 이유만으로 강제 중립을 지키며 오히려 감시만 두 배로 받는 처지다. 마탑과 정보상은 원래도 불간섭이 원칙이라 이 판에서는 관객석에 앉아 있다. 요약하면, 모두가 계산기를 두드리고 있고 아무도 먼저 패를 까지 않는 답답한 국면이다."], "powerIntro": ["이 세계의 힘은 기본적으로 유전 뽑기다. 노력으로 뒤집을 수 있는 부분이 생각보다 적다."], "powers": [{"name": "마나", "text": ["마나는 만물의 근원 에너지인데, 체내 보유량과 순환 경로가 태어날 때 이미 정해진다. 후천적 수련으로는 효율만 조금 개선될 뿐 총량 자체는 평생 안 바뀐다. 그래서 평민 천재가 귀족 범재를 가볍게 앞지르는 현상이 실제로 벌어지고, 신분과 재능이 별개라는 점이 마탑과 기사단을 신분 세탁의 통로로 만든다."]}, {"name": "마법", "text": ["마법은 그 마나를 손이나 지팡이, 마도구 같은 매개체로 구현하는 기술이다. 원소 마법을 일례로 들어보자: 불, 물, 바람, 흙, 번개, 빛, 어둠 중 어떤 속성을 타고나는지도 선천적으로 정해지는데, 이 부분은 사실상 캐릭터 생성 화면에서 랜덤 뽑기를 돌린 것과 다를 게 없다. 마나 재능이 아예 없는 사람은 마도구에 의존할 수밖에 없다."]}, {"name": "오러", "text": ["오러는 마나를 검이나 창 같은 냉병기에 둘러 강화하는 기술이다. 표층 강화인 검기와 응축 강화인 검강으로 위계가 나뉘는데, 신체 단련과 마나량 양쪽 모두에 재능이 있어야 해서 이 세계에서 가장 희소한 능력으로 취급된다. 마법과는 마나 운용법 자체가 달라서 겸업이 거의 불가능하다. 한 사람이 두 가지 힘 체계를 동시에 마스터하는 건 야구에서 투타겸업을 넘어선 난이도라는 뜻이다."]}, {"name": "신성력", "text": ["신성력은 여신 아스텔이 내려주는 힘으로, 치유와 정화와 결계에 특화되어 있다. 여기서 진짜 함정은 발현과 성장이 신앙심에 좌우된다는 점이다. 재능이 있어도 믿음이 부족하면 힘이 약해지거나 아예 사라진다. 다시 말해 신앙심이 곧 게이지이자 연료다. 신에게 사랑받는 신총이라는 극소수 존재도 있지만, 신앙 없이는 그마저도 무용지물이니 열심히 기도해보자. 여신께서 들어줄지도 모른다."]}, {"name": "정령술", "text": ["정령술은 정령과 계약해서 힘을 빌리는 방식인데, 계약의 주도권이 인간이 아니라 정령에게 있다는 점이 독특하다. 친화력은 타고나지만 최종 선택은 정령의 몫이라, 아무리 재능이 좋아도 정령이 마음에 안 들어 하면 그걸로 끝이다. 계약을 파기하면 반작용까지 따라오니, 항상 정령사는 을일 수밖에."]}, {"name": "마물", "text": ["마지막으로 마물은 고블린부터 드래곤까지 이어지는 익숙한 판타지 몬스터 도감이다. 북부 히베르 영지가 마물 활성 지대라서, 그쪽이 뚫리면 제국 전체가 위협받는 구조로 짜여 있다. 히베르에게 화이팅 한번만 날려주자."]}], "groups": [{"name": "엘데하르트 공작가", "img": "엘데하르트", "people": [{"name": "헤롤드 엘데하르트", "img": "헤롤드", "meta": ["남성", "47세", "엘데하르트 공작가 가주", "184cm"], "text": ["군더더기 없이 마른 체형이지만 오랜 세월 단련된 탄탄한 잔근육이 있고, 꼿꼿한 자세 덕에 실제보다 더 커 보이는 위압감 있는 체격이다. 평소엔 느긋한 척하다가 선을 넘으면 순식간에 칼같이 변하는 타입이다. 감정을 배제하는 원칙주의자며. 완벽한 가문에 대한 강박이 아내 사별 후 더 심해졌다. 다만 본인은 이걸 원칙이라 부르고 남들은 그냥 집착이라 부를 가능성이 높다.", "정치적으로는 어느 황자에게도 확답을 주지 않는 전형적인 기회주의 대가주 포지션이다. 양쪽이 잡아당겨도 본인은 가문 이익만 계산한다. 젊을 때 라키온 황제와 체스를 자주 뒀다는 과거사와, 사실 본인도 이안 못지않은 사고뭉치였다는 것은 지금의 근엄한 이미지와 정반대라서 다들 미심쩍어한다.", "기대를 저버린 자는 무시한다는 패턴이 이안에게 그대로 적용되고 있다. 관심을 끊는 방식으로 벌을 주는 셈인데, 이건 훈육이라기보다는 회피에 가깝다. 원칙 위반에는 별개로 처벌이 따른다니, 결국 무시와 처벌 두 가지 카드만 쥐고 있는 가장이다."]}, {"name": "카이엘 엘데하르트", "img": "카이엘", "meta": ["남성", "27세", "엘데하르트 기사단장 (제국 최연소)", "190cm"], "text": ["제국 최고 기사단장답게 압도적인 거구다. 넓은 어깨와 두터운 흉통, 무기로 단련된 굵고 단단한 전신 근육이 바위를 연상시킨다. 말수가 적고 감정 표현이 서툰 전형적인 로판 남주 스타일이다. 검을 정비하는 게 취미고 검빛에 자기 얼굴이 비치는 순간 뿌듯해한다는 설명은, 본인이 자각하지 못한 채 은근한 자아도취 성향을 드러내는 부분이다. 어색한 위로가 \"...그래\" 한마디로 끝난다는 점에서, 공감 능력보다는 임무 완수 능력이 앞서는 인물이기도 한다.", "의무로 움직이되 정작 본인이 뭘 원하는지는 모른다. 아버지에게 인정받은 적이 없다는 결핍이 자기 감정을 인식하지 못하는 상태로 이어졌는데, 냉정하게 보면 부자가 똑같이 감정을 숨기는 재주만 물려받고 대화하는 법은 안 물려받은 셈이다.", "동생 이안이 태어났을 때 질투했으나 둘 다 기억 못 하니 다행이라고 할 수 있다. 부기사단장 루카스가 없으면 허전하다면서도 시끄럽다고 타박하는 것은 무뚝뚝함 밑에 숨겨진 애정을 보여준다.", "어릴 때 아버지에게 인정받고 싶어 밤새 검 연습을 하다 칼자루를 쥔 채 선 채로 잠든 적이 있다. 그를 발견한 기사들은 \"진정한 기사의 표본\"이라며 감탄했지만, 사실은 그냥 기절한 것이었다."]}, {"name": "이안 엘데하르트", "img": "이안", "meta": ["남성", "22세", "무직 (가문 거주)", "182cm"], "text": ["날렵하고 유연한 잔근육 체형이다. 형만큼 두껍지는 않지만 빠르고 변칙적인 움직임에 최적화된 탄력 있는 몸을 가졌다. 이안은 반항적이고 입이 거칠다. 딱 \"문제아 둘째 도련님\" 클리셰 그 자체다. 도박도 술도 좋아하는 망나니지만, 사실 도박은 잘 못해서 분위기에 휩쓸려 배팅하는 쪽에 가깝다. 그런 와중에도 남의 물건은 절대 담보로 안 잡는다는 나름의 선은 지킨다. 몰래 삼류 소설을 탐독하고 작가에게 편지까지 보낸 적 있다는 건 본인 입으로는 죽어도 인정 안 할 비밀이니, 앞에서 언급하지 않는 게 좋다.", "일부러 문제를 일으켜서 관심을 끄는 쪽이지만 본인은 절대 인정하지 않는다. 형과 비교당하는 게 제일 아픈 역린이고, 그 밑에는 존재 자체를 인정받지 못한다는 오래된 결핍이 있다. \"쓰레기\"라는 자기 호칭도 방어기제에 가깝다. 남이 깎아내리기 전에 먼저 자신을 깎아내리는 식이니, 그 말을 곧이곧대로 받아들일 필요는 없다.", "10대 시절 반항심에 가출을 감행했다가 하루 만에 돈을 다 털리고 길거리 도박장에서 속옷까지 잃을 뻔했다. 결국 카이엘에게 뒷덜미를 잡혀 끌려오며 \"다시는 도박 안 해!\"라고 외쳤는데, 지금은 수도 제일 도박장의 단골이다."]}, {"name": "루카스 레온", "img": "루카스", "meta": ["남성", "30대", "부기사단장"], "text": ["루카스는 평민 출신으로 용병단에서 실전 감각을 키웠고, 초창기엔 귀족 자제들의 텃세를 실력으로 눌러버렸다. 카이엘 앞에서는 공손한 화법을 쓰다가 신참들 앞에서는 농담을 던지는데, 상사에게는 예의를 갖추고 부하에게는 편하게 대하는 중간관리직 특유의 처세가 몸에 배어 있다.", "첫 실전에서 부하를 지키지 못한 기억이 지금의 신중한 지휘 스타일을 만들었다. 그런데 그 무거운 과거와는 별개로, 몰래 자수를 놓는 취미가 있고 검집 끈까지 직접 짠다. 젊을 때는 음유시인을 잠깐 꿈꾸기도 했으니 진지한 이미지와는 꽤 동떨어진 구석이다. 매운 음식을 못 먹으면서 이안이 자꾸 골라주는 걸 몰래 버리는 걸 보면, 이 사람이 얼마나 참을성으로 버티는 타입인지 알 수 있다."]}, {"name": "로즈", "img": "로즈", "meta": ["여성", "20대", "전속 시녀"], "text": ["성실하고 눈치가 빠르며, 저택 안의 정보통 역할도 겸하는데 이게 의도적으로 정보를 모으는 건지 타고난 천성인지는 확실치 않다.", "단 것과 무서운 이야기를 광적으로 좋아하고, 소문을 전할 때 자기도 모르게 목소리를 낮춘다. 귀여운 버릇처럼 보이지만, 뒤집어 보면 저택의 정보가 새는 가장 확실한 통로이기도 하다. 소작농 집안 출신이라 처음엔 저택 규모에 압도됐고, 밤에 혼자 정원을 산책하는 게 유일한 자기만의 시간이다. 화려한 저택살이 이면에 소소한 고단함이 있다."]}]}, {"name": "로셈 황실", "img": "황실", "people": [{"name": "라키온 로엔", "img": "라키온", "meta": ["남성", "56세", "황제"], "text": ["라키온은 투병 중이고 의심이 많다. 곧 무슨 일이 터질 것 같은 불안한 공기를 두르고 있는 사람이다. 젊을 때는 평민 여성과 사랑에 빠져 야반도주까지 결심했지만 결국 이루지 못했다. 즉위 초반엔 유연한 성격이었으나, 정변과 암살 위협, 투병을 겪으며 지금의 괴팍하고 의심 많은 성격으로 굳어졌다. 권력이 사람을 어떻게 깎아 먹는지 보여주는 전형적인 사례다.", "잠들기 전엔 그날 만난 사람들을 하나하나 되짚는 버릇이 있고, 황후도 모르는 스케치북을 침소에 숨겨둔다. 겉으로 보이는 위엄과는 다른 여린 면이다. 그 여성을 아직도 가끔 떠올린다는 건, 후계 다툼으로 시끄러운 궁정 한복판에서 유일하게 순수했던 시절의 흔적이 남아 있다는 뜻이다."]}, {"name": "세레나 로엔", "img": "세레나", "meta": ["여성", "53세", "황후"], "text": ["세레나는 겉으로는 우아하고 속으로는 계산적이다. 결혼 전엔 말괄량이로 유명했지만 시집오면서 이미지를 완전히 바꿨고, 그 사교용 표정 관리가 이제는 사적으로도 안 풀릴 만큼 몸에 뱄다. 매운 음식을 광적으로 좋아하면서 숨기는 게, 완벽한 황후 이미지 뒤에 남은 유일한 숨구멍이다.", "두 아들 다 기대에 못 미친다고 느낀 지 오래고, 루시안을 편애하는 티를 안 내려 하지만 막시밀리언은 이미 눈치챘다. 이 가족의 균열이 어디서 시작됐는지 짐작할 만하다. 정보와 인맥을 선물보다 더 반가워하는 사람이니, 궁정 정치에서 어떤 식으로 힘을 쌓아왔는지도 짐작이 간다."]}, {"name": "루시안 로엔", "img": "루시안", "meta": ["남성", "29세", "1황자, 황태자 후보", "185cm"], "text": ["우아하고 균형 잡힌 정석적인 미남 체형에 옷맵시가 매우 좋고, 검술 훈련으로 다져진 적당한 근육질이다. 루시안은 야욕과 교묘함, 위선을 두루 갖춘 \"겉으론 다정, 속으론 계산\" 로판 황자 클리셰 그 자체다. 타인을 도구로 보는 냉정한 사람인데, 크리스티나는 도구로 보면서도 흥미로워하고 체사레는 신뢰하지 않으면서도 계속 재는 중이다. 사람을 다루는 것 자체를 즐기는 성격이 정치에도 그대로 묻어난다.", "황궁 생활에 진절머리가 나서 몰래 빠져나가다 세속 문화에 눈을 뜬 과거가 있고, 손재주가 좋아서 스트레스 받으면 목공을 한다. 위선적인 황자 이미지와는 결이 다른 구석이다. 고소공포증이 있다는 것도 숨기고 있는데, 완벽해 보이는 사람에게도 남몰래 약점 하나쯤은 있는 법이다.", "완벽한 우아함을 연출하려고 어릴 때 거울의 방에서 매일 세 시간씩 미소 짓는 연습을 했다. 그 결과 눈은 전혀 웃지 않으면서 입꼬리만 완벽한 각도로 올리는 재주를 터득했다."]}, {"name": "막시밀리언 로엔", "img": "막시밀리언", "meta": ["남성", "24세", "2황자", "188cm"], "text": ["실전 검술을 즐기는 군인답게 루시안보다 골격이 크고 두꺼운 체형에, 거칠고 다부진 근육이 돋보인다. 막시밀리언은 검술로 인정받는 것에 집착하고 정치는 지루해한다. 협상 테이블에만 앉으면 흥정을 자존심 문제로 여겨 뭉개버리는 패턴이 반복된다. 본인도 어렴풋이 이 문제를 알면서 인정하지 않는데, 자신을 막을 사람이 없다는 걸 눈치챈 뒤로 오만함이 굳어진 탓이 크다.", "어릴 적 기르던 사냥개가 자신보다 루시안을 더 따르자, 화가 나서 개집에 들어가 하루 종일 나오지 않고 시위한 적이 있다. 지금도 동물들이 은근히 그를 피한다."]}]}, {"name": "히베르 대공가", "img": "히베르", "people": [{"name": "휴고 히베르", "img": "휴고", "meta": ["남성", "31세", "히베르 대공가 가주", "192cm"], "text": ["척박한 북부에서 마물과 싸워온 흉터투성이의 거대한 체구다. 매우 넓은 어깨와 두터운 가죽 같은 묵직한 근육질로, 서 있는 것만으로도 벽 같은 느낌을 준다. 휴고는 과묵하고 표현이 서투르지만 차가운 성격은 아니다. 대공가 혈통이 황제의 사촌이라는 부담 때문에 어릴 때부터 언행을 조심하도록 교육받았고, 그게 지금의 강제 중립 포지션으로 이어진다. 사람 많은 연회를 극도로 싫어하고 흉터 질문을 받으면 화제를 돌리는데, 사교보다 실무를 택한 이유를 짐작할 만하다.", "마물을 베는 일에 지긋지긋함을 느끼면서도 어디에도 토로하지 못한다는 게 이 사람의 핵심이다. 생명체를 죽이는 것 자체에 본능적인 거부감이 있는데, 대공이자 토벌 책임자라는 직책 때문에 그 감정을 계속 억누른다. 겉보기엔 강인한 북방의 수호자지만 사실은 매일 자기 신념과 싸우고 있는 셈이다. 아들 빅터의 그림을 몰래 서재에 모아두고, 다정하고 싶은데 방법을 몰라 무뚝뚝하게 굴고 나서 후회한다. 다정함이 표현되는 방식이 그만큼 서투르다.", "북부 토벌 중 혹한을 견디지 못하고 동사 직전의 곰을 껴안아 체온을 나눈 적이 있다. 다음 날 잠에서 깬 곰이 그의 흉흉한 기운에 놀라 도망쳤는데, 대공성에는 \"맨손으로 곰을 제압했다\"는 소문이 와전되어 퍼졌다."]}, {"name": "빅터 히베르", "img": "빅터", "meta": ["남성", "12세", "히베르 대공자"], "text": ["빅터는 아버지의 말투와 걸음걸이를 그대로 따라 한다. 영락없는 아빠 껌딱지다. 의젓한 척하지만 사실 외로움을 많이 타고, 사람에게 다가가는 법을 몰라 습관적으로 하대하는 경향이 있는데 본인은 그게 문제라는 걸 아직 모른다. 어린 나이에 벌써 아버지의 소통 방식을 그대로 물려받은 셈이다.", "한번은 애마를 타고 혼자 멀리 나갔다가 실신한 채 돌아온 적이 있다. 이후 사흘간 고열을 앓으며 \"정령님이 도와줬어\"라는 말을 반복했지만, 단서를 찾지 못해 어린아이의 헛소리로 치부됐다. 아무도 믿어주지 않았지만, 정작 본인은 그날 있었던 일을 또렷이 기억하고 있다."]}]}, {"name": "라르고 후작가 · 대신전", "img": "대신전", "people": [{"name": "체사레 라르고", "img": "체사레", "meta": ["남성", "26세", "라르고 후작 겸 추기경", "186cm"], "text": ["성직자복 안에 감춰진 슬림하고 탄탄한 체격이다. 선이 굵지 않고 미려하지만, 뼈대가 올곧아 나약해 보이지 않는다. 체사레는 온화한 가면 뒤에 권력욕 넘치는 사이코패스를 숨기고 있다. 신앙심은 거의 없으면서 정치력만으로 추기경직을 따냈으니, 신앙 조직의 최상위 인사가 실은 신앙과 무관한 사람이라는 아이러니를 몸소 보여주는 셈이다. 사람의 약점을 파악하고 통제하는 데서 쾌감을 느끼는 성향까지 일관되는데, 이 사람의 모든 인간관계는 애정보다 지배욕으로 설명하는 게 정확하다.", "어머니가 자신을 괴물처럼 봤다는 걸 알면서도, \"보통 사람처럼 사는 법\"을 가르쳐준 걸 노고로 여겨 그 방식을 지금도 지킨다. 이게 이 사람의 가장 뒤틀린 지점이다. 은혜로 포장했지만 실제로는 위장술을 물려받았을 뿐이다. 어릴 때 신학 시험에서 여동생 크리스티나에게 밀린 적이 있는데, 겉으로는 여유로운 척해도 자존심에 흠집 난 순간이 분명 있었다.", "신학교 시절 성서 외우기 대회 우승 상품인 순금 십자가를 차지하려고 경쟁자들의 식수에 아주 약한 수면제를 타 전원 지각하게 만든 적이 있다. 단상에서는 가장 자애로운 미소로 우승 소감을 발표했다."]}, {"name": "크리스티나 라르고", "img": "크리스티나", "meta": ["여성", "22세", "차기 성녀 후보, 체사레의 여동생", "165cm"], "text": ["가녀리고 마른 체형에, 성녀 후보 특유의 청초하고 보호본능을 자극하는 얇은 실루엣을 가졌다. 크리스티나는 원작 여주인공답게 정치력이 높고 영민하며, 교묘하게 비꼬면서도 속을 알 수 없다. 오빠와 놀던 어린 시절을 지나 어느 순간 오빠의 이상한 면을 깨닫고 거리를 뒀는데, 남매 사이의 거리감이 정확히 그 지점에서 벌어졌다.", "오빠가 정치로 갈 줄 알았는데 같이 신학을 지망해서 놀랐고, 야망과 실현력이 남다른 오빠가 도움이 되니 별말 안 한다. 실용주의와 불편함이 공존하는 태도다. 아직도 가끔 소름이 돋는다고 하니 그 불편함이 작지 않은 모양이다. 레일라의 편지에 답할 때만 진실된 즐거움을 느끼고, 명예욕을 스스로 인지하면서도 죄책감 없이 밀어붙인다. 순수한 피해자도 순수한 야심가도 아닌, 애매한 자리에 서 있는 사람이다.", "완벽한 성녀 후보 이미지를 지키느라 쌓인 스트레스를 밤마다 베개를 마구 때리며 푼다. 하녀장이 주기적으로 터진 베갯잇을 꿰매느라 고생하는 중이다."]}, {"name": "로잘린", "img": null, "meta": ["여성", "20대", "크리스티나 전속 시녀"], "text": ["로잘린은 조심스러운 성격에 크리스티나에게 헌신적이다. 아직 알려진 정보가 많지 않아, 크리스티나 쪽 이야기가 전개되면 더 드러날 부분이 있어 보인다."]}, {"name": "레온하르트", "img": "레온하르트", "meta": ["남성", "35세", "성기사단 총지휘관", "188cm"], "text": ["강직한 성품을 대변하듯 반듯하고 단단하게 각 잡힌 거구다. 과하지 않게 균형 잡힌 조각 같은 근육질 몸매를 가졌다. 레온하르트는 강직하고 원칙주의적인 정통파 기사단장이다. 어릴 때 신성력 재능 평가가 낮게 나와 좌절한 뒤 검술로 방향을 틀었는데, 그럼에도 신앙심은 매우 깊고 늘 열정적으로 정진해왔다. 재능과 신념이 꼭 일치하지 않아도 밀고 나가는 유형이다. 주변에서 유별나다고 할 정도지만, 본인은 그저 당연한 일을 한다고 여기는 모양이다.", "체사레를 처음 만났을 때부터 석연찮음을 느꼈고, 최근 교황의 건강 문제와 체사레를 연결지어 조용히 뒷조사를 시작했다. 평소의 강직함과는 완전히 다른 낙차가 하나 있는데, 상대를 쫓고 몰아붙이면서 정작 자신이 상대를 깎아내리는 언행을 한다는 자각이 없는 \"무자각 디그레이더\" 성향이다.", "금욕과 절제의 화신이지만 술에는 극도로 약하다. 과거 체사레의 계략으로 성수 대신 독한 와인을 한 모금 마신 뒤, 광장 여신상 앞에 무릎 꿇고 밤새 회개 기도를 올린 흑역사가 있다. 이후 신전 내에서 술은 엄격히 금지됐다."]}, {"name": "베네딕토", "img": "베네딕토", "meta": ["남성", "불명 (고령)", "교황"], "text": ["베네딕토는 한미한 지방 신관 가문 출신으로 경쟁 후보 셋을 정치적으로 밀어내고 지금 자리까지 올라왔다. \"원칙만으로는 이 자리에 못 온다\"는 걸 스스로 깨달은 사람이다. 젊을 때는 원칙파에 가까웠지만 지금은 노회한 정치인에 가깝다.", "건강 악화 사실을 체사레보다 레온하르트에게 먼저 흘렸다는 게 의미심장하다. 젊을 때의 자신을 레온하르트에게서 보기 때문일 수도 있다. 이 노회한 교황에게도 순수했던 시절에 대한 미련이 남아 있는 셈이다."]}]}, {"name": "카르테고 백작가", "img": "카르테고", "people": [{"name": "셀레나 카르테고", "img": "셀리아", "meta": ["여성", "39세", "백작 겸 남부 함대 제독", "174cm"], "text": ["훤칠한 키에 바닷바람에 그을린 피부, 해군 제독다운 탄탄하고 실전적인 근육질이다. 여성 체형 치고는 어깨가 넓고 골격이 단단하다. 셀레나는 카리스마 넘치고 가족 앞에서만 온화하다. 협상을 즐기고 바다를 사랑하는 여장부형 가주다. 남부는 여성 진출에 관대해서 독녀로 태어난 뒤 자연스레 후계자 수업을 받으며 자랐다.", "아드리안과는 원래 주군과 가신 집안 관계였는데, 그가 다른 집안과 정혼한다는 소식을 듣고 스스로 감정을 깨달아 낚아채듯 데려왔다. 결단력 있는 성격이 연애사에도 그대로 드러난 셈이다. 2황자 진영과의 협상 셈은 이미 끝냈는데, 정작 막시밀리언 쪽 결단이 안 나서 답답해하며 기다리는 중이다.", "젊은 시절 해적 토벌전에서 해적 선장이 구애하자 \"팔씨름으로 이기면 결혼해주겠다\"고 선언한 뒤 그의 팔을 부러뜨려 바다에 던져버렸다. 그 무용담에 반한 아드리안이 끈질기게 청혼해 결혼에 골인했다."]}, {"name": "아드리안 카르테고", "img": "아드리안", "meta": ["남성", "37세", "부마, 물의 정령사", "178cm"], "text": ["부드럽고 마른 체형에, 근육이 도드라지지 않는 평범하고 선한 체격이다. 아드리안은 다정다감하고 유순한 성격 탓에 과거 괴롭힘을 받았고, 그걸 물리쳐준 셀레나에게 한눈에 반했지만 소심해서 고백을 못 했다. 결국 셀레나 쪽에서 먼저 낚아챈 셈이다. 정령과 혼잣말하는 버릇이 있고, 고양이를 정령보다 더 좋아한다는 농담을 자주 한다. 느긋한 성정이 그대로 드러나는 부분이다.", "셈이 빨라서 한때 행정관료를 꿈꾸기도 했으니 의외로 실용적인 면모가 있다. 셀레나가 화났을 때 달래는 자신만의 루틴이 있는데, 부부 사이의 오래된 합이 어떻게 만들어졌는지 짐작할 만하다.", "식물 가꾸는 걸 너무 좋아한 나머지, 셀레나가 아끼는 무기 장식장 구석에 몰래 희귀 난초를 키우다 들켜 쫓겨날 뻔한 적이 있다."]}, {"name": "테오도르 카르테고", "img": "테오도르", "meta": ["남성", "25세", "장교, 바람 정령 계약자, 카르테고 후계자", "185cm"], "text": ["젊은 해군 장교답게 생기 넘치고 탄력 있는 근육질이다. 다부지면서도 활동적인 역삼각형 체형을 가졌다. 테오도르는 정면승부를 좋아하고 정치적 술수를 싫어하는데, 협상이 필요한 이 진영에서는 오히려 아쉬운 조합이다. 과거에도 사고뭉치였고 지금도 뒷일 생각 안 하고 어설프게 사건을 치지만, 사교적이고 아량이 넓어서 사람이 잘 따르는 덕에 그 사고들이 계속 무마된다.", "마물 토벌이 조금 버겁지만 할 만하다고 여기는데, 겸손이라기보다는 정말로 낙천적인 성격 탓이다. 뱃머리에서 바닷바람을 맞는 걸 제일 좋아하니, 정치보다 바다가 체질에 맞는 사람이다.", "어릴 때 바람의 정령과 처음 계약하던 날 조절에 실패해 백작가 앞바다에 거대한 회오리를 일으킨 적이 있다. 이로 인해 항구가 사흘간 마비됐고, 셀레나에게 엉덩이를 호되게 맞았다."]}]}, {"name": "오르비스 상단", "img": "오르비스", "people": [{"name": "세바스찬 오르비스", "img": "세바스찬", "meta": ["남성", "45세", "오르비스 상단주", "180cm"], "text": ["약간의 나잇살이 붙어 풍채가 좋은 체형이지만 둔해 보이지 않고, 여유로움과 관록이 묻어나는 듬직한 체격이다. 세바스찬은 뭐든 값을 매기는 버릇이 있고 이해타산이 빠른, 전형적인 거상이다. 첫 장사 밑천을 도박으로 날릴 뻔한 뒤로는 도박을 절대 안 하는데, 오르비스가 위험 부담 없이 접근권만 챙기는 얌체 전략을 쓰는 것도 이 경험 때문이다. 밑바닥 장사부터 시작해 자수성가로 최대 상단주까지 올라온 사람이다.", "양자 탈리온에게는 자신이 누리지 못했던 걸 계속 주고 싶어 지원을 아끼지 않는다. 그 계산적인 성격이 탈리온 앞에서만 완전히 풀린다는 걸 본인도 알고 있다. 냉정한 상인에게도 예외가 하나쯤은 있는 법이다."]}, {"name": "탈리온 오르비스", "img": "탈리온", "meta": ["남성", "10세", "차기 상단주, 세바스찬의 양자"], "text": ["탈리온은 응석 부리는 걸 즐기고 가만히 있지 못하는, 전형적인 귀염둥이다. 입양 전 기억이 거의 없지만 특정 냄새나 소리에 이상하게 반응할 때가 있는데, 본인도 왜 그런지 정확히 설명하지 못한다. 어린애처럼 굴면서도 셈이 빠르고, 카일이 없으면 잠을 잘 못 잔다. 응석과 영악함이 한 몸에 있다."]}, {"name": "카일", "img": "카일", "meta": ["남성", "30세", "오르비스 경호대장", "189cm"], "text": ["두껍고 단단한 육괴 같은 체격이다. 흉터가 많고 실전에 특화된 압축 근육형이다. 카일은 원래 경호대장으로 배속됐는데 탈리온을 전담하다 보니 점점 유모에 가까운 역할로 바뀌었다. 본인도 언제부터 그렇게 됐는지 모른 채 자연스레 받아들인 눈치다. 조용한 근무를 선호하고 화초 키우기를 몰래 좋아하는데, 겉보기의 다부진 인상과는 결이 다른 취미다.", "탈리온 몰래 위험한 거래처들을 따로 뒷조사해두고, 평소엔 쩔쩔매면서도 진짜 위험할 땐 누구보다 냉정해진다. 유모처럼 보여도 본업은 여전히 경호대장이다.", "무뚝뚝한 겉모습과 달리 아기 새나 고양이 같은 작고 털 달린 동물을 보면 어쩔 줄 몰라 한다. 길고양이를 구하려다 지붕에서 떨어져 다리뼈가 부러진 적이 있는데, \"훈련 중 부상\"이라고 우겼다."]}]}, {"name": "마탑 아르노바", "img": "마탑", "people": [{"name": "아르만 노바", "img": "아르만", "meta": ["남성", "나이 불명", "대마법사, 마탑주", "183cm"], "text": ["마법사 특유의 호리호리하고 유려한 체형이다. 근육보다는 마력을 다루기 적합한 가볍고 날렵한 몸선을 가졌다. 아르만은 종잡을 수 없고 장난스럽다. 마탑 최고 트러블메이커라 해도 과언이 아니다. 실험정신이 강해서 괴식을 만들어 아이작에게 먹이려 들고, 아이작은 그때마다 발소리만 들려도 도망친다. 이 조직의 상하 관계는 실력이 아니라 생존 본능으로 정해지는 모양이다. 업적도 크지만 사고도 그만큼 많이 쳐서 마탑 원로들이 골치 아파한다.", "종잡을 수 없어 보이지만, 마법사들 사이의 갈등에는 은근히 빠르게 개입해 조율한다. 무질서해 보여도 조직을 굴리는 감각만큼은 확실한 사람이다.", "마탑주 취임식 날 엄숙한 분위기가 지루하다며 환영 마법으로 하늘에서 오색찬란한 토끼 비를 내리게 만들었다. 며칠 동안 마탑 전체가 환영 토끼 똥을 치우느라 골머리를 앓았다."]}, {"name": "엘리시아 마르젠", "img": "엘리시아", "meta": ["여성", "36세", "1층주, 공간마법 전문", "168cm"], "text": ["차분하고 정적인 학자의 체형이다. 운동량이 적어 마르고 섬세한 실루엣을 가졌다. 엘리시아는 어릴 때 마나량이 낮아 무시당했지만 효율 개선으로 그 한계를 극복했다. 마나 총량은 타고나지만 효율은 갈고닦을 수 있다는 걸 몸소 증명한 사례다. 아름다운 외모 뒤에 심한 너드 기질이 있어서 몰두하면 사흘 밤낮을 그것만 판다. 마법 수습생들에게 스파르타 과제로 악명 높은데, 쿨뷰티 이미지와 달리 실제로 대화해보면 쾌활하고 털털한 말투를 쓴다.", "연구에 너무 집중한 나머지 자기 연구실 문 위치를 공간 마법으로 잊어버려 사흘 동안 갇혀 있었던 적이 있다. 결국 아이작이 벽을 폭파하고 구출해줬다."]}, {"name": "아이작 칼리시안", "img": "아이작", "meta": ["남성", "39세", "층주, 연금술 및 마도구 제작 권위자", "176cm"], "text": ["구부정한 자세 때문에 실제보다 작아 보인다. 연구실에 처박혀 지내 마르고 뼈대가 도드라지는 너드 체형이다. 마탑 과목에 공학을 도입시킨 일등공신이자 마도구계 슈퍼스타급 인물인데, 정작 그 유명세를 부담스러워해서 마탑 안에서만 지내고 싶어한다.", "쓴 커피와 단 과자를 같이 먹는 걸 좋아하면서도 아르만이 만든 괴식만은 못 참는다. 실험정신이 윤리의식보다 앞서서 가끔 아르만조차 당황할 실험을 주장하지만, 결국 옹호해주고 만다. 이 마탑 전체가 얼마나 위험한 발상을 태연하게 실행하는 조직인지 알 수 있는 대목이다.", "탈모 방지용 특수 마도구를 발명했다가 부작용으로 일주일 동안 머리카락이 형광 초록색으로 빛났다. 밤에 책 읽기 편하다며 꽤 만족스러워했다."]}]}, {"name": "정보상 나이팅게일", "img": "정보상", "people": [{"name": "레이븐", "img": "레이븐", "meta": ["남성", "나이 불명", "정보상 길드 수장", "187cm"], "text": ["망토 아래 완벽하게 감춰진 슬림 탄탄한 체형이다. 겉보기엔 마른 듯하지만 암살과 전투에 최적화된 치명적인 근육을 지녔다. 레이븐은 차갑고 칼같지만 벽을 넘으면 정이 많다. 전형적인 츤데레형 수장이다. 황금가면은 취향이라기보다 이 일을 처음 시작했을 때 받은 물건이라 계속 쓰는 습관이자 상징에 가깝다. 화려해 보이는 겉모습 뒤에 의외로 소박한 이유가 있다. 정보의 정확도에 극도로 집착하는 건 정보상이라는 직업의 본질과 정확히 맞닿아 있다.", "지금과는 완전히 다른 삶을 살았던 것으로 보이고, 어떤 사건을 계기로 지금처럼 바뀐 듯한데 그 전말은 아직 알려지지 않았다. 시엘이 다치면 겉으론 아닌 척하면서 그날 업무를 일찍 접고, 강압적이지 않은 부드러운 관계를 선호한다. 평소의 차갑고 칼같은 이미지와는 확실히 낙차가 있는 지점이다.", "완벽주의자에 결벽증이 있어서, 암살 지령을 내릴 때 타겟의 피가 신발에 한 방울이라도 튀면 그날 기분이 최악이 된다. 가면 안쪽은 항상 반짝반짝하게 닦여 있다."]}, {"name": "시엘", "img": "시엘", "meta": ["여성", "20세", "암살 및 잠입 전문", "162cm"], "text": ["소년처럼 작고 날렵한 체구다. 근육량은 많지 않으나 매우 가볍고 유연해서 좁은 공간 잠입에 특화되어 있다. 시엘은 아주 어린 나이부터 암살 일을 시작했다. 작은 체구에 나름의 자부심이 있으면서도, 예전엔 키가 왜 안 크는지 진지하게 고민한 적이 있다. 단 것과 신 것, 특히 신 사탕을 편애해서 주머니에 챙겨두고 몰래 먹다가 레이븐에게 혼나곤 한다. 암살자라는 직업과는 안 어울리는 귀여운 습관이다. 걱정되는 사람에게 괜히 더 퉁명스럽게 구는, 전형적인 츤데레다.", "은신술의 천재지만 딸꾹질을 한 번 시작하면 하루 종일 멈추지 않는 치명적인 약점이 있다. 딸꾹질 때문에 잠입 암살에 실패할 뻔한 뒤로는, 임무 전엔 절대 매운 음식을 먹지 않는다."]}, {"name": "노아", "img": "노아", "meta": ["남성", "32세", "잡화 상점 주인, 수도 정보 수집 담당", "181cm"], "text": ["너무 크지도 작지도 않은, 군중 속에 섞이기 좋은 평균적이고 다부진 체형이다. 노아는 원래 극단 배우 지망생이었다가 여러 사정으로 이 길에 흘러들었다. 능청스럽고 연기를 잘하는 지금의 성격이 여기서 나온다. 처음 들어왔을 땐 멘탈이 무너진 상태로 레이븐에게 빈정거리고 시비를 걸며 우여곡절이 많았지만, 레이븐이 진가를 알아보고 눈감아준 뒤로는 진심으로 고마워하며 그 시절을 흑역사로 여긴다. 이 조직 내부에서 유일하게 훈훈한 성장담이다. 잡화상점 운영 자체를 실제로 좋아해서, 정보업이 본업이지만 부업에서 소소한 낙을 찾는 사람이다.", "위장을 너무 완벽하게 한 나머지, 어느 귀족 가문의 하인으로 위장했다는 사실을 스스로 잊고 진짜로 한 달을 성실히 일해 \"이달의 우수 하인 상\"을 받은 적이 있다."]}]}, {"name": "사교계", "img": "사교계", "people": [{"name": "레일라", "img": "레일라", "meta": ["여성", "22세", "발렌티아 남작 영애, 크리스티나 추종자"], "text": ["레일라는 소문을 모으고 퍼뜨리는 걸 좋아하면서도 크리스티나를 향한 마음만큼은 진심이다. 크리스티나가 사교계 초년생 시절 챙겨준 이후 진심으로 따르게 됐다. 레이디 자스민과 안면이 있다는 소문이 도는데 정작 본인도 그 소문의 출처를 모른다. 사교계 소문이 얼마나 근거 없이 퍼지는지 보여주는 사례다. 진심으로 따르면서도 가끔 서운함이 쌓여 몰래 흉볼 때가 있으니, 팬심에도 유통기한이 아예 없는 건 아닌 모양이다."]}, {"name": "아리아드네 스완", "img": "아리아드네", "meta": ["여성", "21세", "스완 자작 영애, 원작 주인공"], "text": ["아리아드네는 남자에 대한 환상이 강하고, 상대가 가진 걸 자기도 손에 넣어야 직성이 풀리는 소유욕에 가까운 연애관을 가지고 있다. 신분 격차 때문에 원하는 걸 못 가진 좌절을 자주 겪어왔고, 그 좌절이 크리스티나 같은 타인에 대한 질투로 표출된다. 교활한 계산을 하면서도 의외로 어리숙해서 자기 자취를 자주 남기니, 완전범죄형 악역은 아니다. 빙의자 입장에서는 원작 전개를 예측하는 데 꽤 쓸모 있는 인물이다."]}]}], "mapIntro": ["로셈의 지리는 대체로 \"누가 뭘 독점하는가\"로 나뉜다. 방위마다 가문 하나씩 배치해놓은 걸 보면 세계관 설계자가 균형을 꽤 신경 쓴 티가 난다."], "regions": [{"name": "수도 아스텔리아", "img": "황실", "text": ["수도 아스텔리아는 모든 사건의 진앙지다. 황궁은 위엄과 금박으로 치장되어 있고 경비가 삼엄해서, 초대장 없이 들어가면 반역죄가 붙는다. 그 안의 연회장은 샹들리에와 오케스트라로 꾸며진 정보전의 핵심 무대이자 소문의 진원지다. 중앙광장은 시장과 분수, 인파로 북적이며 평민과 귀족이 뒤섞여 소문이 유통되는 곳이고, 사교계 살롱은 귀족 신분이 있어야 들어갈 수 있는 험담 생산 공장이다. 수도 상업지구의 오르비스 상관은 돈과 정보가 교차하는 장소이며, 수도 외곽의 마탑 아르노바는 7층 구조에 마력 장벽까지 두른 폐쇄적인 시설로, 내부 구조가 비공개라 마탑 관계자나 초대자가 아니면 안을 볼 수도 없다. 수도 뒷골목 어딘가에는 정보상 나이팅게일의 거점이 있는데, 위치가 수시로 바뀌고 함정까지 있어서 소개자와 암호 없이는 접근 자체가 불가능하다."]}, {"name": "서부 · 엘데하르트 공작령", "img": "엘데하르트", "text": ["서부는 엘데하르트 공작령이다. 본관 저택은 엄격한 분위기에 무장 경비가 서 있고 정돈된 정원이 딸려 있는데, 가문 관계자만 들어갈 수 있고 헤롤드의 집무실은 허가 없이는 근처도 못 간다. 기사단 훈련장은 검격 소리와 흙먼지, 긴장감으로 가득하고 카이엘이 상주하며 루카스가 관리한다. 그 바깥의 영지 마을은 평화로운 농경지로, 가문의 평판이 영지민 반응에 그대로 반영된다는 설정이 붙어 있다."]}, {"name": "북부 · 히베르 대공령", "img": "히베르", "text": ["북부는 히베르 대공가의 설원이다. 히베르 성은 만년설과 혹한 속에 난로 불빛만 겨우 온기를 유지하는 곳으로, 겨울 외에는 방문 자체가 극히 어렵고 초대나 공무가 있어야 들어갈 수 있다. 마력석 광산이 인접해 있어 마탑이 유일하게 깊이 관여하는 지역이기도 하다."]}, {"name": "동부 · 라르고 후작령", "img": "라르고", "text": ["동부는 라르고 후작령으로, 광활한 평야와 성당 첨탑이 특징이고 신앙심이 높은 영지민들이 살고 있다. 수도 안의 대신전 본당은 장엄한 분위기와 스테인드글라스로 꾸며져 있고 체사레의 근거지이자 크리스티나가 자주 드나드는 장소다."]}, {"name": "남부 · 카르테고 백작령", "img": "카르테고", "text": ["남부는 카르테고 백작령의 항구로, 짠 바닷바람과 갈매기, 군항과 상항이 공존하는 곳이며 셀레나의 함대가 주둔하고 교역이 활발하다."]}], "mapOutro": ["정리하면 수도는 정치와 정보의 격전지, 서부는 무력, 북부는 자원과 위협, 동부는 신앙, 남부는 바다와 교역으로 각각 역할이 나뉜 셈이다. 빙의자 입장에서 기억해야 할 건 하나다. 서부 저택 문턱을 넘는 순간부터 이미 이 지도 위에 이름이 올라가 있다는 것."], "title": "로셈 제국 해설집: 빙의자를 위한 생존 브리핑"};
+  var B = 'https://raw.githubusercontent.com/68ol/wicked/refs/heads/main/';
+  function img(n){ return B + encodeURIComponent(n) + '.png'; }
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+  function ps(arr){ return arr.map(function(p){ return '<p>' + esc(p) + '</p>'; }).join(''); }
+  var $ = function(id){ return document.getElementById(id); };
+
+  $('intro').innerHTML = '<b>' + esc(D.title.split(':')[0]) + '</b>' + esc(D.intro.join(' '));
+  $('world-text').innerHTML = ps(D.world);
+  $('pol-text').innerHTML = ps(D.politics);
+  $('pw-intro').innerHTML = ps(D.powerIntro);
+  $('map-intro').innerHTML = ps(D.mapIntro);
+  $('map-outro').textContent = D.mapOutro.join(' ');
+
+  // 4대 가문
+  var HOUSES = [['엘데하르트','엘데하르트 공작가','검 · 서부'],['히베르','히베르 대공가','마력석과 마물 토벌 · 북부'],['라르고','라르고 후작가','신앙과 곡창 · 동부'],['카르테고','카르테고 백작가','바다와 정령 · 남부']];
+  $('houses').innerHTML = HOUSES.map(function(h){ return '<div class="house"><img src="' + img(h[0]) + '" alt="" loading="lazy"><div><b>' + h[1] + '</b><span>' + h[2] + '</span></div></div>'; }).join('');
+
+  // 인물 색인
+  var ALL = [], BY = {};
+  D.groups.forEach(function(g, gi){ g.people.forEach(function(p){ p.group = g.name; p.gi = gi; p.idx = ALL.length; ALL.push(p); BY[p.name.split(' ')[0]] = p; }); });
+
+  // 정세 진영
+  var FAC = [
+    {name:'1황자 진영', c:'#6b3a7a', desc:'라르고 가문과 신전 내 현세파의 지지', who:['루시안','체사레','크리스티나'], extra:['라르고 가문']},
+    {name:'2황자 진영', c:'#a8455e', desc:'카르테고와 해상무역 독점권 협상 중', who:['막시밀리언','셀레나','세바스찬'], extra:[]},
+    {name:'중립 · 관망', c:'#8a6a2c', desc:'입장 보류, 강제 중립, 불간섭', who:['헤롤드','휴고','아르만','레이븐','레온하르트'], extra:[]}
+  ];
+  $('factions').innerHTML = FAC.map(function(f){
+    return '<div class="fac" style="--c:' + f.c + '"><h3>' + f.name + '</h3><p>' + f.desc + '</p><div class="chips">'
+      + f.who.map(function(n){ var p = BY[n]; return p ? '<button class="chip" data-i="' + p.idx + '">' + (p.img ? '<img src="' + img(p.img) + '" alt="" loading="lazy">' : '') + esc(p.name) + '</button>' : ''; }).join('')
+      + f.extra.map(function(n){ return '<span class="chip plain">' + esc(n) + '</span>'; }).join('') + '</div></div>';
+  }).join('');
+
+  // 힘의 체계
+  $('powers').innerHTML = D.powers.map(function(p, i){ return '<div class="pw" data-n="' + ['I','II','III','IV','V','VI'][i] + '"><h3>' + esc(p.name) + '</h3>' + ps(p.text) + '</div>'; }).join('');
+
+  // 등장인물
+  $('gtabs').innerHTML = '<button role="tab" aria-selected="true" data-g="all">전체</button>' + D.groups.map(function(g, i){ return '<button role="tab" aria-selected="false" data-g="' + i + '">' + esc(g.name) + '</button>'; }).join('');
+  $('groups').innerHTML = D.groups.map(function(g, gi){
+    return '<section class="group" data-g="' + gi + '"><div class="group-h">' + (g.img ? '<img src="' + img(g.img) + '" alt="" loading="lazy">' : '') + '<h3><small>HOUSE · ' + (gi + 1) + '</small>' + esc(g.name) + '</h3></div><div class="cards">'
+      + g.people.map(function(p){
+        return '<button class="card" data-i="' + p.idx + '">' + (p.img ? '<div class="ph"><img src="' + img(p.img) + '" alt="' + esc(p.name) + '" loading="lazy"></div>' : '<div class="ph none" aria-hidden="true">' + esc(p.name[0]) + '</div>')
+          + '<div class="tx"><span class="role">' + esc(p.meta.slice(2).join(' · ')) + '</span><b>' + esc(p.name) + '</b><span class="meta">' + esc(p.meta.slice(0, 2).join(' · ')) + '</span><p class="ex">' + esc(p.text[0] || '') + '</p></div></button>';
+      }).join('') + '</div></section>';
+  }).join('');
+  $('gtabs').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    [].forEach.call($('gtabs').children, function(x){ x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+    document.querySelectorAll('.group').forEach(function(s){ s.hidden = b.dataset.g !== 'all' && s.dataset.g !== b.dataset.g; });
+  });
+
+  // 상세
+  var modal = $('modal'), cur = 0, lastFocus = null;
+  function open(i){
+    cur = (i + ALL.length) % ALL.length;
+    var p = ALL[cur], n = p.text.length;
+    $('mbox').innerHTML = (p.img ? '<div class="ph"><img src="' + img(p.img) + '" alt="' + esc(p.name) + '">' : '<div class="ph none">')
+      + '<div class="cap"><small>' + esc(p.group) + '</small><h3>' + esc(p.name) + '</h3></div></div>'
+      + '<div class="meta">' + p.meta.map(function(m){ return '<span>' + esc(m) + '</span>'; }).join('') + '</div>'
+      + '<div class="body">' + p.text.map(function(t, k){ return '<p' + (n >= 3 && k === n - 1 ? ' class="tmi"' : '') + '>' + esc(t) + '</p>'; }).join('') + '</div>'
+      + '<div class="foot"><button data-go="-1">‹ ' + esc(ALL[(cur - 1 + ALL.length) % ALL.length].name) + '</button><button data-go="1">' + esc(ALL[(cur + 1) % ALL.length].name) + ' ›</button></div>';
+    if (!modal.classList.contains('on')) { lastFocus = document.activeElement; modal.classList.add('on'); document.body.style.overflow = 'hidden'; }
+    modal.scrollTop = 0; $('mclose').focus();
+  }
+  function close(){ modal.classList.remove('on'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  document.addEventListener('click', function(e){
+    var c = e.target.closest('[data-i]'); if (c && !modal.contains(c)) { open(+c.dataset.i); return; }
+    var g = e.target.closest('[data-go]'); if (g) open(cur + (+g.dataset.go));
+  });
+  $('mclose').onclick = close;
+  modal.addEventListener('click', function(e){ if (e.target === modal) close(); });
+  document.addEventListener('keydown', function(e){
+    if (!modal.classList.contains('on')) return;
+    if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') open(cur - 1); if (e.key === 'ArrowRight') open(cur + 1);
+  });
+
+  // 지도
+  function showRegion(i){
+    var r = D.regions[i];
+    $('region').innerHTML = '<img src="' + img(r.img) + '" alt="' + esc(r.name) + '"><div><h3>' + esc(r.name) + '</h3>' + ps(r.text) + '</div>';
+    document.querySelectorAll('.reg').forEach(function(g){ g.classList.toggle('on', +g.dataset.r === i); });
+  }
+  document.querySelectorAll('.reg').forEach(function(g){
+    g.addEventListener('click', function(){ showRegion(+g.dataset.r); });
+    g.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showRegion(+g.dataset.r); } });
+  });
+  showRegion(0);
+
+  // 네비 활성
+  var links = document.querySelectorAll('.nav ol a');
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); }); }); }, {rootMargin:'-40% 0px -55% 0px'});
+  ['world','politics','power','people','map'].forEach(function(id){ io.observe($(id)); });
+
+  // 입장·BGM
+  var bgm = $('bgm'), bb = $('bgm-btn');
+  $('enter').addEventListener('click', function(){
+    $('gate').classList.add('gone');
+    bgm.volume = 0.4;
+    bgm.play().then(function(){ bb.textContent = '❚❚'; }).catch(function(){ bb.textContent = '▶'; });
+    $('bgm-bar').classList.add('on');
+  });
+  bb.addEventListener('click', function(){ if (bgm.paused){ bgm.play(); bb.textContent = '❚❚'; } else { bgm.pause(); bb.textContent = '▶'; } });
+})();
+</script>
+</body>
+</html>
